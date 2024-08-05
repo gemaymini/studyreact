@@ -25,7 +25,7 @@
 
 					函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式。 
 						function sum(a){
-							return(b)=>{
+							return(b)=>{ffvvvvb 
 								return (c)=>{
 									return a+b+c
 								}
@@ -44,6 +44,7 @@
 			//保存表单数据到状态中
 			saveFormData = (dataType)=>{
 				return (event)=>{
+					console.log(this)
 					this.setState({[dataType]:event.target.value})
 				}
 			}
