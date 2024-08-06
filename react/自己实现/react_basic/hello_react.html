@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello_react</title>
+</head>
+<body>
+    <div id="test"></div>
+    <!--react核心库-->
+    <script type="text/javascript"src="../js/react.development.js"></script>
+    <!--支持react操作DOM -->
+    <script type="text/javascript"src="../js/react-dom.development.js"></script>
+    <!--babel编译器 jsx->js -->
+    <script type="text/javascript"src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Mycomponent extends React.Component{
+            constructor(props){
+                super(props)
+                this.state={
+                    isHot:true,
+                    wind:"weifeng"
+                }
+            }
+            change(){
+                this.setState({isHot:!this.state.isHot})
+            }
+            render(){
+                const {isHot,wind}=this.state
+                return <h1 onClick={this.change.bind(this)}>
+                    today is {isHot?'hot':'cold'},{wind}
+                    </h1>
+            }
+        }
+        ReactDOM.render(<Mycomponent/>,document.getElementById('test'))
+
+        // const title = document.getElementById("title")
+        // title.addEventListener('click',()=>{
+        //     console.log("被点击了");
+        // })
+
+        // const title = document.getElementById("title")
+        // title.onclick=()=>{
+        //     console.log("被点击了");
+        // }
+
+
+
+
+
+        </script>
+</body>
+</html>
