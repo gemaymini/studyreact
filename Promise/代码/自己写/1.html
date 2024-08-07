@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class ='page-header'>Promise</h2>
+        <button class = 'btn btn-primary' id='btn'>点击抽奖</button>
+
+    </div>
+    <script>
+        function rand(m,n)
+        {
+            return Math.ceil(Math.random()*(n-m+1))+m-1;
+        }
+
+        const btn=document.querySelector('#btn');
+        btn.addEventListener('click',function(){
+        const p =new Promise((reslove,reject)=>{
+            setTimeout(()=>{
+                let n=rand(1,100);
+                if(n<=30){
+                    reslove(n);
+                }
+                else{
+                    reject(n);
+                }
+            },1000);
+        });
+        p.then((n)=>{
+            console.log('中奖了',n);
+        },(n)=>{
+            console.log('没有中奖',n);
+        });});
+    </script>
+</body>
+</html>
